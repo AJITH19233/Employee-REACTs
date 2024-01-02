@@ -6,6 +6,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+
 const PORT  = process.env.PORT || 8080 
 mongoose.connect("mongodb+srv://ajith1323:Achanamma@cluster0.3jql3om.mongodb.net/Vendors?retryWrites=true&w=majority")
 .then(()=>{
@@ -13,6 +14,9 @@ mongoose.connect("mongodb+srv://ajith1323:Achanamma@cluster0.3jql3om.mongodb.net
     app.listen(PORT,()=>console.log("Server is running"))
 })
 .catch((err)=>console.log(err))
+
+const path = require('path');
+app.use(express.static(path.join(__dirname,'/build')));
 
 //schema
 
